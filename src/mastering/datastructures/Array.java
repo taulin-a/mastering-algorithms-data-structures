@@ -415,6 +415,39 @@ public class Array<T extends Number> {
     }
 
     public Array<?> difference(Array<T> array) {
-        return null;
+        var newLength = length + array.getLength();
+        var newArray = new Array<>(new Number[newLength], newLength);
+
+        for (T element : elements) {
+            if (array.linearSearch(element) == -1)
+                newArray.append(element);
+        }
+
+        return newArray;
+    }
+
+    public Array<?> differenceOrdered(Array<T> array) {
+        var newLength = length + array.getLength();
+        var newArray = new Array<>(new Number[newLength], newLength);
+
+        var i = 0;
+        var j = 0;
+
+        while (i < length && j < array.getLength()) {
+            if (elements[i].intValue() < array.get(j).intValue()) {
+                newArray.append(elements[i++]);
+            } else if (elements[i].intValue() == array.get(j).intValue()) {
+                i++;
+                j++;
+            } else {
+                j++;
+            }
+        }
+
+        while (i < length) {
+            newArray.append(elements[i++]);
+        }
+
+        return newArray;
     }
 }

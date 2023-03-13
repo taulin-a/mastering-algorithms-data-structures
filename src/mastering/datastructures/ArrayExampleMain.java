@@ -163,5 +163,39 @@ public class ArrayExampleMain {
 
         var unionArr5 = arr12.intersectionOrdered(arr13);
         unionArr5.display();
+
+        var arr14 = new Array<>(new Integer[5], 5);
+        arr14.append(3);
+        arr14.append(5);
+        arr14.append(10);
+        arr14.append(4);
+        arr14.append(6);
+
+        var arr15 = new Array<>(new Integer[5], 5);
+        arr15.append(12);
+        arr15.append(4);
+        arr15.append(7);
+        arr15.append(2);
+        arr15.append(5);
+
+        var diffArr = arr14.difference(arr15);
+        diffArr.display();
+
+        var arr16 = new Array<>(new Integer[5], 5);
+        arr16.append(3);
+        arr16.append(4);
+        arr16.append(5);
+        arr16.append(6);
+        arr16.append(10);
+
+        var arr17 = new Array<>(new Integer[5], 5);
+        arr17.append(2);
+        arr17.append(4);
+        arr17.append(5);
+        arr17.append(7);
+        arr17.append(12);
+
+        var diffArr2 = arr16.differenceOrdered(arr17);
+        diffArr2.display();
     }
 }
