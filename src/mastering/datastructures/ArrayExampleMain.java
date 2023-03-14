@@ -197,5 +197,20 @@ public class ArrayExampleMain {
 
         var diffArr2 = arr16.differenceOrdered(arr17);
         diffArr2.display();
+
+        var arr18 = new Array<>(new Integer[11], 11);
+        arr18.append(6);
+        arr18.append(7);
+        arr18.append(8);
+        arr18.append(9);
+        arr18.append(11);
+        arr18.append(12);
+        arr18.append(15);
+        arr18.append(16);
+        arr18.append(17);
+        arr18.append(18);
+        arr18.append(19);
+
+        arr18.findMultipleMissingElements();
     }
 }

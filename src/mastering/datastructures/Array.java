@@ -450,4 +450,43 @@ public class Array<T extends Number> {
 
         return newArray;
     }
+
+    public void findMissingElementStartsFromOne() {
+        var n = elements[length - 1].intValue();
+        var expectedValue = (n * (n + 1)) / 2;
+        var sum = sum();
+
+        if (sum != expectedValue)
+            System.out.println("Missing element found: " + (expectedValue - sum));
+        else
+            System.out.println("There are no missing elements");
+    }
+
+    public void findMissingElementUnorderedStartsFromAny() {
+        var diff = elements[0].intValue();
+
+        for (int i = 0; i < length; i++) {
+            if ((elements[i].intValue() - i) != diff) {
+                System.out.println("Missing element found: " + (i + diff));
+                return;
+            }
+        }
+
+        System.out.println("There are no missing elements");
+    }
+
+    public void findMultipleMissingElements() {
+        var diff = elements[0].intValue();
+
+        for (int i = 0; i < length; i++) {
+            if ((elements[i].intValue() - i) != diff) {
+                while (diff < elements[i].intValue() - i) {
+                    System.out.println("Missing element found: " + (i + diff));
+                    diff++;
+                }
+            }
+        }
+
+        System.out.println("There are no more missing elements");
+    }
 }
