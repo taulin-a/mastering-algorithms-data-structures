@@ -1,5 +1,7 @@
 package mastering.datastructures;
 
+import java.util.Arrays;
+
 public class Array<T extends Number> {
     private T[] elements;
     private int size;
@@ -488,5 +490,51 @@ public class Array<T extends Number> {
         }
 
         System.out.println("There are no more missing elements");
+    }
+
+    public void findMissingElementsUnordered() {
+        var l = min().intValue();
+        var h = max().intValue() + 1;
+        var n = length;
+
+        var bitset = new Integer[h];
+        Arrays.fill(bitset, 0);
+
+        for (T element : elements) {
+            bitset[element.intValue()]++;
+        }
+
+        for (int i = l; i < n; i++) {
+            if (bitset[i] == 0) {
+                System.out.println("Missing element found: " + i);
+            }
+        }
+
+        System.out.println("There are no more missing elements");
+    }
+
+    public void findDuplicatesOrdered() {
+        Integer lastDuplicate = null;
+
+        for (int i = 0; i < (length - 1); i++) {
+            if (elements[i].equals(elements[i + 1])
+                    && (lastDuplicate == null || elements[i].intValue() != lastDuplicate)) {
+                System.out.println("Duplicate element found: " + elements[i].intValue());
+                lastDuplicate = elements[i].intValue();
+            }
+        }
+    }
+
+    public void findDuplicatesOrderedCount() {
+        for (int i = 0; i < (length - 1); i++) {
+            if (elements[i].equals(elements[i + 1])) {
+                int j = i + 1;
+                while (elements[j].equals(elements[i])) j++;
+
+                System.out.println("Duplicate element found: " + elements[i].intValue() + " - " + (j - i) + " times");
+
+                i += (j - i);
+            }
+        }
     }
 }

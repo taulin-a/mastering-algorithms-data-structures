@@ -212,5 +212,39 @@ public class ArrayExampleMain {
         arr18.append(19);
 
         arr18.findMultipleMissingElements();
+
+        System.out.println("-------");
+
+        var arr19 = new Array<>(new Integer[10], 10);
+        arr19.append(3);
+        arr19.append(7);
+        arr19.append(4);
+        arr19.append(9);
+        arr19.append(12);
+        arr19.append(6);
+        arr19.append(1);
+        arr19.append(11);
+        arr19.append(2);
+        arr19.append(10);
+
+        arr19.findMissingElementsUnordered();
+
+
+        System.out.println("-------");
+
+        var arr20 = new Array<>(new Integer[10], 10);
+        arr20.append(3);
+        arr20.append(6);
+        arr20.append(8);
+        arr20.append(8);
+        arr20.append(10);
+        arr20.append(12);
+        arr20.append(15);
+        arr20.append(15);
+        arr20.append(15);
+        arr20.append(20);
+
+        arr20.findDuplicatesOrdered();
+        arr20.findDuplicatesOrderedCount();
     }
 }
