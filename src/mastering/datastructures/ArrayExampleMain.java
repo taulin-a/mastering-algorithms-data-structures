@@ -246,5 +246,22 @@ public class ArrayExampleMain {
 
         arr20.findDuplicatesOrdered();
         arr20.findDuplicatesOrderedCount();
+        arr20.findDuplicatesHashing();
+
+        System.out.println("-------");
+
+        var arr21 = new Array<>(new Integer[10], 10);
+        arr21.append(8);
+        arr21.append(3);
+        arr21.append(6);
+        arr21.append(4);
+        arr21.append(6);
+        arr21.append(5);
+        arr21.append(6);
+        arr21.append(8);
+        arr21.append(2);
+        arr21.append(7);
+
+        arr21.findDuplicatesUnsorted();
     }
 }

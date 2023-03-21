@@ -495,7 +495,6 @@ public class Array<T extends Number> {
     public void findMissingElementsUnordered() {
         var l = min().intValue();
         var h = max().intValue() + 1;
-        var n = length;
 
         var bitset = new Integer[h];
         Arrays.fill(bitset, 0);
@@ -504,7 +503,7 @@ public class Array<T extends Number> {
             bitset[element.intValue()]++;
         }
 
-        for (int i = l; i < n; i++) {
+        for (int i = l; i < h; i++) {
             if (bitset[i] == 0) {
                 System.out.println("Missing element found: " + i);
             }
@@ -534,6 +533,47 @@ public class Array<T extends Number> {
                 System.out.println("Duplicate element found: " + elements[i].intValue() + " - " + (j - i) + " times");
 
                 i += (j - i);
+            }
+        }
+    }
+
+    public void findDuplicatesHashing() {
+        var l = min().intValue();
+        var h = max().intValue() + 1;
+
+        var bitset = new Integer[h];
+        Arrays.fill(bitset, 0);
+
+        for (T element : elements) {
+            bitset[element.intValue()]++;
+        }
+
+        for (int i = l; i < h; i++) {
+            if (bitset[i] > 1) {
+                System.out.println("Duplicate element found: " + i + " - duplicated times: " + (bitset[i]));
+            }
+        }
+
+        System.out.println("There are no more duplicate elements");
+    }
+
+    public void findDuplicatesUnsorted() {
+        var auxArray = elements.clone();
+
+        for (int i = 0; i < (length - 1); i++) {
+            if (auxArray[i] == null)
+                continue;
+
+            var count = 1;
+            for (int j = i + 1; j < length; j++) {
+                if (auxArray[i].equals(auxArray[j])) {
+                    count++;
+                    auxArray[j] = null;
+                }
+            }
+
+            if (count > 1) {
+                System.out.println("Duplicate element found: " + auxArray[i] + " - duplicated times: " + count);
             }
         }
     }
