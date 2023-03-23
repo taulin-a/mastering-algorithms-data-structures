@@ -577,4 +577,63 @@ public class Array<T extends Number> {
             }
         }
     }
+
+    public void findPair(int sum) {
+        for (int i = 0; i < length - 1; i++) {
+            for (int j = i + 1; j < length; j++) {
+                if (elements[i].intValue() + elements[j].intValue() == sum)
+                    System.out.println("Pair found: " + elements[i].intValue() + " + " + elements[j].intValue()
+                            + " = " + sum);
+            }
+        }
+    }
+
+    public void findPairHashing(int sum) {
+        var l = min().intValue();
+        var h = max().intValue() + 1;
+
+        var bitset = new Integer[h];
+        Arrays.fill(bitset, 0);
+
+        for (T element : elements) {
+            var rest = sum - element.intValue();
+            if (rest >= l && rest < h && bitset[rest] >= 1) {
+                System.out.println("Pair found: " + element.intValue() + " + " + rest
+                        + " = " + sum);
+            }
+            bitset[element.intValue()]++;
+        }
+    }
+
+    public void findPairSorted(int sum) {
+        int i = 0, j = length - 1;
+        while (i < j) {
+            var result = elements[i].intValue() + elements[j].intValue();
+            if (result < sum) {
+                i++;
+            } else if (result > sum) {
+                j--;
+            } else {
+                System.out.println("Pair found: " + elements[i] + " + " + elements[j]
+                        + " = " + sum);
+                i++;
+                j--;
+            }
+        }
+    }
+
+    public void findMinAndMax() {
+        int min, max;
+        min = max = elements[0].intValue();
+
+        for (int i = 1; i < length; i++) {
+            if (elements[i].intValue() < min) {
+                min = elements[i].intValue();
+            } else if (elements[i].intValue() > max) {
+                max = elements[i].intValue();
+            }
+        }
+
+        System.out.println("Min = " + min + " - Max = " + max);
+    }
 }

@@ -263,5 +263,43 @@ public class ArrayExampleMain {
         arr21.append(7);
 
         arr21.findDuplicatesUnsorted();
+
+        System.out.println("-------");
+
+        var arr22 = new Array<>(new Integer[10], 10);
+        arr22.append(6);
+        arr22.append(3);
+        arr22.append(8);
+        arr22.append(10);
+        arr22.append(16);
+        arr22.append(7);
+        arr22.append(5);
+        arr22.append(2);
+        arr22.append(9);
+        arr22.append(14);
+
+        arr22.findPair(10);
+
+        System.out.println("-------");
+
+        arr22.findPairHashing(10);
+
+        System.out.println("-------");
+
+        var arr23 = new Array<>(new Integer[10], 10);
+        arr23.append(1);
+        arr23.append(3);
+        arr23.append(4);
+        arr23.append(5);
+        arr23.append(6);
+        arr23.append(8);
+        arr23.append(9);
+        arr23.append(10);
+        arr23.append(12);
+        arr23.append(14);
+
+        arr23.findPairSorted(10);
+
+        arr23.findMinAndMax();
     }
 }
