@@ -1,4 +1,4 @@
-package mastering.datastructures;
+package mastering.datastructures.array;
 
 public class ArrayExampleMain {
     public static void main(String[] args) {

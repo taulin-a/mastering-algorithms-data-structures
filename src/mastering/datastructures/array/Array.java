@@ -1,4 +1,4 @@
-package mastering.datastructures;
+package mastering.datastructures.array;
 
 import java.util.Arrays;
 
