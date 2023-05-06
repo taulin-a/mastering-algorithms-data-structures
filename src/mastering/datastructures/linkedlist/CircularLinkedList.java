@@ -4,6 +4,10 @@ public class CircularLinkedList<T> {
     private Node<T> head;
     private Node<T> tail;
 
+    public CircularLinkedList() {
+        head = tail = null;
+    }
+
     public CircularLinkedList(T element) {
         head = new Node<>(element);
         head.setNext(head);
@@ -83,11 +87,27 @@ public class CircularLinkedList<T> {
             tail = newNode;
     }
 
-    public void delete(int index) {
+    public void append(T element) {
+        var newNode = new Node<>(element);
+
+        if (head == null) {
+            head = tail = newNode;
+            tail.setNext(head);
+            return;
+        }
+
+        tail.setNext(newNode);
+        newNode.setNext(head);
+        tail = newNode;
+    }
+
+    public T delete(int index) {
+        T aux;
         if (index == 0) {
+            aux = head.getValue();
             tail.setNext(head.getNext());
             head = head.getNext();
-            return;
+            return aux;
         }
 
         var previous = head;
@@ -96,9 +116,12 @@ public class CircularLinkedList<T> {
             previous = current;
             current = current.getNext();
         }
+        aux = current.getValue();
 
         previous.setNext(current.getNext());
         if (current == tail)
             tail = previous;
+
+        return aux;
     }
 }

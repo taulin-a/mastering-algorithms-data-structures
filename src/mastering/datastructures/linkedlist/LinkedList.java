@@ -512,4 +512,8 @@ public class LinkedList<T> {
     public Iterator<T> getIterator() {
         return new Iterator<>(firstNode);
     }
+
+    public T getLast() {
+        return lastNode.getValue();
+    }
 }
