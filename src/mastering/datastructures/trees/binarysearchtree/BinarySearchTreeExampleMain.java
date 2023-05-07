@@ -1,4 +1,6 @@
-package mastering.datastructures.trees;
+package mastering.datastructures.trees.binarysearchtree;
+
+import mastering.datastructures.trees.TraversalType;
 
 public class BinarySearchTreeExampleMain {
     public static void main(String[] args) {

@@ -1,4 +1,7 @@
-package mastering.datastructures.trees;
+package mastering.datastructures.trees.binarytree;
+
+import mastering.datastructures.trees.binarytree.BinaryTree;
+import mastering.datastructures.trees.binarytree.BinaryTreeArr;
 
 public class BinaryTreeExampleMain {
     public static void main(String[] args) {

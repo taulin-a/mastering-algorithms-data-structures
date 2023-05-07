@@ -1,4 +1,4 @@
-package mastering.datastructures.trees;
+package mastering.datastructures.trees.binarytree;
 
 public class BinaryTreeArr {
     private final String[] nodes;

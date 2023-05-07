@@ -1,4 +1,8 @@
-package mastering.datastructures.trees;
+package mastering.datastructures.trees.binarysearchtree;
+
+import mastering.datastructures.trees.BinaryNode;
+import mastering.datastructures.trees.TraversalType;
+import mastering.datastructures.trees.binarytree.BinaryTree;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -15,7 +19,7 @@ public class BinarySearchTree<T extends Comparable<T>> extends BinaryTree<T> {
     public BinarySearchTree(TraversalType traversalType, String preorderStr, final Class<T> clazz) {
         if (traversalType == TraversalType.INORDER)
             throw new UnsupportedOperationException();
-        
+
         var preorderList = Arrays.stream(preorderStr.split(SEPARTOR))
                 .map(str -> strValueToType(str, clazz))
                 .collect(Collectors.toList());

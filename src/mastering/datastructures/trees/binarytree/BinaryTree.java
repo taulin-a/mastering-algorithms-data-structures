@@ -1,7 +1,10 @@
-package mastering.datastructures.trees;
+package mastering.datastructures.trees.binarytree;
 
 import mastering.datastructures.queue.Queue;
 import mastering.datastructures.stack.Stack;
+import mastering.datastructures.trees.BinaryNode;
+import mastering.datastructures.trees.PrintableNode;
+import mastering.datastructures.trees.TraversalType;
 
 public class BinaryTree<T extends Comparable<T>> {
     protected BinaryNode<T> root;
