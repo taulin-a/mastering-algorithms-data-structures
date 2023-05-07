@@ -4,8 +4,8 @@ import mastering.datastructures.queue.Queue;
 import mastering.datastructures.stack.Stack;
 
 public class BinaryTree<T extends Comparable<T>> {
-    private BinaryNode<T> root;
-    private final Queue<BinaryNode<T>> traversalQueue;
+    protected BinaryNode<T> root;
+    protected final Queue<BinaryNode<T>> traversalQueue;
 
     public BinaryTree() {
         traversalQueue = new Queue<>();
@@ -107,6 +107,8 @@ public class BinaryTree<T extends Comparable<T>> {
 
             currentNode = currentNode.getLeft();
         } while (currentNode != null || !iterationStack.isEmpty());
+
+        System.out.print("\n");
     }
 
     public void displayInOrder() {
@@ -223,7 +225,7 @@ public class BinaryTree<T extends Comparable<T>> {
         return countHeight(root);
     }
 
-    private int countHeight(BinaryNode<T> node) {
+    protected int countHeight(BinaryNode<T> node) {
         if (node != null && node.getData() != null) {
             var x = countHeight(node.getLeft());
             var y = countHeight(node.getRight());

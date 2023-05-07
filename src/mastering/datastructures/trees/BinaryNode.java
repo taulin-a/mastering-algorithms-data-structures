@@ -1,7 +1,7 @@
 package mastering.datastructures.trees;
 
 public class BinaryNode<T> {
-    private final T data;
+    private T data;
     private BinaryNode<T> left;
     private BinaryNode<T> right;
 
@@ -12,6 +12,10 @@ public class BinaryNode<T> {
     }
 
     public BinaryNode(T data) {
+        this.data = data;
+    }
+
+    public void setData(T data) {
         this.data = data;
     }
 
