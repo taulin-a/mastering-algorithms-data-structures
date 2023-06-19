@@ -1,21 +1,27 @@
 package mastering.datastructures.trees.binarytree;
 
-public class BinaryTreeArr {
-    private final String[] nodes;
+import java.lang.reflect.Array;
 
-    public BinaryTreeArr(int size) {
-        this.nodes = new String[size];
+public class BinaryTreeArr<T extends Comparable<T>> {
+    protected final T[] nodes;
+
+    public BinaryTreeArr(Class<T> clazz, int size) {
+        this.nodes = (T[]) Array.newInstance(clazz, size);
     }
 
-    private int calculateLChildPos(int index) {
+    protected int calculateLChildPos(int index) {
         return ((index + 1) * 2) - 1;
     }
 
-    private int calculateRChildPos(int index) {
+    protected int calculateRChildPos(int index) {
         return (index + 1) * 2;
     }
 
-    public void addNode(String parentLabel, String lChildLabel, String rChildLabel) {
+    protected int calculateParentPos(int childIndex) {
+        return ((childIndex + 1) / 2) - 1;
+    }
+
+    public void addNode(T parentLabel, T lChildLabel, T rChildLabel) {
         if (nodes[0] == null) {
             nodes[0] = parentLabel;
             nodes[1] = lChildLabel;

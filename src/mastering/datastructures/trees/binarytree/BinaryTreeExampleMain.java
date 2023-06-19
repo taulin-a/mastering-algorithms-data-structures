@@ -5,7 +5,7 @@ import mastering.datastructures.trees.binarytree.BinaryTreeArr;
 
 public class BinaryTreeExampleMain {
     public static void main(String[] args) {
-        var tree = new BinaryTreeArr(7);
+        var tree = new BinaryTreeArr<>(String.class, 7);
         tree.addNode("a", "b", "c");
         tree.addNode("b", "d", "e");
         tree.addNode("c", "f", "g");

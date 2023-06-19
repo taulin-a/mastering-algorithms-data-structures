@@ -516,4 +516,18 @@ public class LinkedList<T> {
     public T getLast() {
         return lastNode.getValue();
     }
+
+    public T get(int index) {
+        var iterator = firstNode;
+        var length = size();
+
+        for (int i = 0; i < length && iterator != null; i++) {
+            if (i == index)
+                return iterator.getValue();
+
+            iterator = iterator.getNext();
+        }
+
+        return null;
+    }
 }

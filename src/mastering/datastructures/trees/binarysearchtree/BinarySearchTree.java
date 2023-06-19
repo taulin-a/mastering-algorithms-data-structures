@@ -54,7 +54,7 @@ public class BinarySearchTree<T extends Comparable<T>> extends BinaryTree<T> {
     }
 
     @SuppressWarnings("unchecked")
-    private T strValueToType(String input, Class<T> clazz) {
+    protected T strValueToType(String input, Class<T> clazz) {
         if (clazz.isAssignableFrom(String.class)) {
             return (T) input;
         } else if (clazz.isAssignableFrom(Integer.class)) {
@@ -110,7 +110,7 @@ public class BinarySearchTree<T extends Comparable<T>> extends BinaryTree<T> {
         }
     }
 
-    private BinaryNode<T> addRecursive(BinaryNode<T> node, T element) {
+    protected BinaryNode<T> addRecursive(BinaryNode<T> node, T element) {
         if (node == null) {
             return new BinaryNode<>(element);
         }
@@ -128,7 +128,7 @@ public class BinarySearchTree<T extends Comparable<T>> extends BinaryTree<T> {
         delete(root, element);
     }
 
-    public BinaryNode<T> delete(BinaryNode<T> node, T element) {
+    protected BinaryNode<T> delete(BinaryNode<T> node, T element) {
         if (node == null)
             return null;
 
@@ -156,21 +156,21 @@ public class BinarySearchTree<T extends Comparable<T>> extends BinaryTree<T> {
         return node;
     }
 
-    private BinaryNode<T> findInOrderPredecessor(BinaryNode<T> node) {
+    protected BinaryNode<T> findInOrderPredecessor(BinaryNode<T> node) {
         while (node != null && node.getRight() != null)
             node = node.getRight();
 
         return node;
     }
 
-    private BinaryNode<T> findInOrderSuccessor(BinaryNode<T> node) {
+    protected BinaryNode<T> findInOrderSuccessor(BinaryNode<T> node) {
         while (node != null && node.getLeft() != null)
             node = node.getLeft();
 
         return node;
     }
 
-    private T recursiveSearch(BinaryNode<T> node, T data) {
+    protected T recursiveSearch(BinaryNode<T> node, T data) {
         if (node == null || node.getData() == null)
             return null;
 
