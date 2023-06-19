@@ -530,4 +530,8 @@ public class LinkedList<T> {
 
         return null;
     }
+
+    public boolean isEmpty() {
+        return firstNode == null;
+    }
 }

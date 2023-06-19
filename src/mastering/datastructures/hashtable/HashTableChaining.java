@@ -5,20 +5,20 @@ import mastering.datastructures.linkedlist.LinkedList;
 import javax.naming.OperationNotSupportedException;
 
 public class HashTableChaining implements HashTable<Integer> {
-    private final LinkedList[] hashArr;
+    private final LinkedList<Integer>[] hashArr;
 
+    @SuppressWarnings("unchecked")
     public HashTableChaining() {
         this.hashArr = new LinkedList[10];
     }
 
-    @SuppressWarnings("unchecked")
     @Override
     public void put(Integer key) {
         try {
             var hashKey = hash(key);
 
             if (hashArr[hashKey] == null)
-                hashArr[hashKey] = new LinkedList<Integer>();
+                hashArr[hashKey] = new LinkedList<>();
 
             hashArr[hashKey].insertSorted(key);
         } catch (OperationNotSupportedException e) {
@@ -26,7 +26,6 @@ public class HashTableChaining implements HashTable<Integer> {
         }
     }
 
-    @SuppressWarnings("unchecked")
     @Override
     public Integer find(Integer key) {
         var hashKey = hash(key);
@@ -34,7 +33,7 @@ public class HashTableChaining implements HashTable<Integer> {
         if (hashArr[hashKey] == null)
             return null;
 
-        return ((LinkedList<Integer>) hashArr[hashKey]).linearSearch(key).getValue();
+        return hashArr[hashKey].linearSearch(key).getValue();
     }
 
     @Override
@@ -42,7 +41,6 @@ public class HashTableChaining implements HashTable<Integer> {
         return key % 10;
     }
 
-    @SuppressWarnings("unchecked")
     @Override
     public Integer delete(Integer key) {
         var hashKey = hash(key);
@@ -50,12 +48,12 @@ public class HashTableChaining implements HashTable<Integer> {
         if (hashArr[hashKey] == null)
             return null;
 
-        var iterator = ((LinkedList<Integer>) hashArr[hashKey]).getIterator();
+        var iterator = hashArr[hashKey].getIterator();
 
         var index = 0;
         while (iterator.hasNext()) {
             if (iterator.getValue().equals(key))
-                return ((LinkedList<Integer>) hashArr[hashKey]).delete(index);
+                return hashArr[hashKey].delete(index);
 
             iterator.next();
             index++;
