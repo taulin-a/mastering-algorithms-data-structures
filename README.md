@@ -1,0 +1,2 @@
+## mastering-algorithms-data-structures
+All algorithms and data structures from the course [Mastering Data Structures & Algorithms using C and C++](https://www.udemy.com/course/datastructurescncpp/) by [Addul Bari](https://www.youtube.com/@abdul_bari) implemented in Java.
