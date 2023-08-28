@@ -60,7 +60,7 @@ public class BreadthFirstSearchExampleMain {
             while (!iterator.currentIsNull()) {
                 if (!nodesVisited.contains(iterator.getValue())) {
                     System.out.println("Node visited: " + iterator.getValue());
-                    
+
                     if (iterator.getValue() == nodeToBeFound) {
                         System.out.println("Node " + nodeToBeFound + " has been found!");
                         return iterator.getValue();
